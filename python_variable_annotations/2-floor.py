@@ -3,6 +3,6 @@
 """This function floors a given number"""
 
 
-def floor(n: float) -> int: 
+def floor(n: float) -> int:
     """returns floor of n"""
     return int(n)
