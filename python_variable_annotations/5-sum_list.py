@@ -3,7 +3,7 @@
 """this function sums all floats in a given list"""
 
 
-def sum_list(input_list: list) -> float:
+def sum_list(input_list: list[float]) -> float:
     """returns the sum of all floats in the list"""
     add: float = 0.0
     for num in input_list:
