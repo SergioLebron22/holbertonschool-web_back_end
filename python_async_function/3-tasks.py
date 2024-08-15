@@ -2,6 +2,7 @@
 
 """This function returns a task after random wait time"""
 
+
 import asyncio
 wait_random = __import__('0-basic_async_syntax').wait_random
 
