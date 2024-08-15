@@ -1,11 +1,14 @@
 #!/usr/bin/env python3
 
+"""this async routine spawns n wait random and stores the in a list"""
+
 
 import typing
 task_wait_random = __import__('3-tasks').task_wait_random
 
 
 async def task_wait_n(n: int, max_delay: int) -> typing.List[float]:
+    """returns a sorted list of n amount of random delays"""
     delays = []
     for i in range(n):
         delay = await task_wait_random(max_delay)
