@@ -36,7 +36,7 @@ class Server:
         return data[start_index:end_index]
 
     @staticmethod
-    def index_range(self, page, page_size) -> Tuple(int, int):
+    def index_range(page, page_size) -> Tuple(int, int):
         """this function returns a tuple with the start and end indexes"""
         start_index = (page - 1) * page_size
         end_index = start_index + page_size
