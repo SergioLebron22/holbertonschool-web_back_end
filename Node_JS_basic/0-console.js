@@ -1,5 +1,5 @@
-const displayMessage = (str) => {
+function displayMessage(str) {
   process.stdout.write(`${str}\n`);
-};
+}
 
-exports.displayMessage = displayMessage;
+module.exports.displayMessage = displayMessage;
