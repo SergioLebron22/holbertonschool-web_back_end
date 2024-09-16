@@ -2,4 +2,4 @@ function displayMessage(str) {
   process.stdout.write(`${str}\n`);
 }
 
-module.exports.displayMessage = displayMessage;
+module.exports = displayMessage;
