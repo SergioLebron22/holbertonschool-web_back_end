@@ -1,17 +1,14 @@
 const fs = require('fs');
 
 function countStudents(path) {
-  if (path !== 'database.csv') {
-    throw new Error('Cannot load the database');
-  }
-
   const listCS = [];
   const listSWE = [];
 
-  fs.readFile(path, 'utf8', (err, data) => {
+  fs.readFile(path, 'utf8', function (err, data) {
     if (err) {
       throw new Error('Cannot load the database');
     }
+
     const rows = data.trim().split('\n');
 
     for (let i = 1; i < rows.length; i += 1) {
