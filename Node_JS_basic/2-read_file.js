@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { parse } = require('csv-parse');
+const csv = require('csv');
 
 function countStudents(path) {
   if (path !== 'database.csv') {
@@ -9,7 +9,7 @@ function countStudents(path) {
   const listCS = [];
   const listSWE = [];
   fs.createReadStream(path)
-    .pipe(parse({ delimiter: ',', from_line: 2 }))
+    .pipe(csv.parse({ delimiter: ',', from_line: 2 }))
     .on('data', (row) => {
       count += 1;
       if (row[3] === 'CS') listCS.push(row[0]);
