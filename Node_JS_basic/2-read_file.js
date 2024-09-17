@@ -4,7 +4,7 @@ function countStudents(path) {
   const listCS = [];
   const listSWE = [];
 
-  fs.readFile(path, 'utf8', function (err, data) {
+  fs.readFile(path, 'utf8', (err, data) => {
     if (err) {
       throw new Error('Cannot load the database');
     }
