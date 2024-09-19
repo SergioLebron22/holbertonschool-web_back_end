@@ -14,7 +14,7 @@ const app = http.createServer(async (req, res) => {
         const students = await countStudents(path);
         res.end(`${msg}${students.join('\n')}`);
       } catch (err) {
-        res.end(`${msg}${err}`);
+        res.end(`${msg}${err.message}`);
       }
     }
   } else {
