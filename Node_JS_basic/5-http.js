@@ -17,7 +17,7 @@ const app = http.createServer(async (req, res) => {
             });
         }
         catch (err) {
-            console.log(err);
+            throw new Error("Cannot load the database")
         }
     }
     else {
