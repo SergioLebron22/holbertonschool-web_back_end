@@ -14,10 +14,10 @@ const app = http.createServer(async (req, res) => {
             const str = data.join('\n');
             res.end(str);
         }).catch((err) => {
+            console.log(err)
             res.write(err)
             res.end()
-        })
-        
+        });
     }
     else {
         res.end('Not Found')
