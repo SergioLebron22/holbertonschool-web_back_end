@@ -8,15 +8,15 @@ const app = http.createServer(async (req, res) => {
   if (url === '/') {
     res.end('Hello Holberton School!');
   } else if (url === '/students') {
-    res.write('This is the list of our students\n');
-    countStudents(path)
-      .then((data) => {
-        const str = data.join('\n');
-        res.end(str);
-      });
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
+    if (path !== null) {
+      const msg = 'This is the list of our students\n';
+      try {
+        const students = await countStudents(path);
+        res.end(`${msg}${students.join('\n')}`);
+      } catch (err) {
+        res.end(`${msg}${err}`);
+      }
+    }
   } else {
     res.end('Not Found');
   }
