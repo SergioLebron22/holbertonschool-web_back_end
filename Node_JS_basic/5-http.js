@@ -18,7 +18,8 @@ const app = http.createServer(async (req, res) => {
       }
     }
   } else {
-    res.end('Not Found');
+    res.write('Not Found');
+    res.end();
   }
 });
 
