@@ -5,7 +5,7 @@ class StudentsController {
     static async getAllStudents(req, res) {
         const msg = 'This is the list of our students\n';
         try {
-            const students = await readDatabase(path);
+            const students = await readDatabase(process.argv[2]);
             res.status(200).send(`${msg}${students.join('\n')}`);
         } catch (err) {
             res.status(500).send(`${msg}${err.message}`);
@@ -21,7 +21,7 @@ class StudentsController {
         }
 
         try {
-            const students = await readDatabase(path);
+            const students = await readDatabase(process.argv[2]);
             const filteredStudents = students.filter(students => students.major === major);
             const firstNames = filteredStudents.map(students => students.firstName);
             res.status(200).send(`List: ${firstNames.join(', ')}`);
