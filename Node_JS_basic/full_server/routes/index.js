@@ -2,10 +2,21 @@ import express from 'express';
 import AppController from '../controllers/AppController';
 import StudentsController from '../controllers/StudentsController';
 
-const route = express.Router();
+function controllerRouting(app) {
+  const router = express.Router();
+  app.use('/', router);
 
-route.get('/', AppController.getHomepage);
-route.get('/students', StudentsController.getAllStudents);
-route.get('/students/:major', StudentsController.getAllStudentsByMajor);
+  router.get('/', (req, res) => {
+    AppController.getHomepage(req, res);
+  });
 
-module.exports = route;
+  router.get('/students', (req, res) => {
+    StudentsController.getAllStudents(req, res, process.argv[2]);
+  });
+
+  router.get('/students/:major', (req, res) => {
+    StudentsController.getAllStudentsByMajor(req, res, process.argv[2]);
+  });
+}
+
+export default controllerRouting;
